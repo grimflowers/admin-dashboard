@@ -1,0 +1,127 @@
+.avatar {
+    border-radius: 50%;
+    width: max(50px, 5%);
+    min-width: 50px;
+    height: auto;
+}
+
+.top-bar {
+    box-sizing: border-box;
+    border: 2px solid black;
+}
+
+.gridContainer {
+    display: grid;
+    grid-template-columns: min-content 2fr 1fr;
+    grid-template-rows: min-content 1fr;
+}
+
+.main-nav {
+    grid-row: 1 / -1;
+    grid-column: 1 / 2;
+    margin-right: 15px;
+}
+
+.top-bar {
+    grid-row: 1 / 2;
+    grid-column: 2 / -1;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 50px 1fr;
+    gap: 15px;
+    padding: 15px;
+}
+
+.search-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.search-bar {
+    width: 50%;
+    height: min(25px, 100%);
+    background: #e2e8f0;
+    border-radius: 8px;
+}
+
+.search-icon {
+    width: 24px;
+    height: auto;
+}
+
+.main-content {
+    grid-row: 2 / -1;
+    grid-column: 2 / -1;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.notification-icon {
+    width: 24px;
+    height: auto;
+}
+
+.project-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+
+.project-controls a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    background: #5cb6e1;
+    color: white;
+    text-decoration: none;
+    height: 50px;
+    border-radius: 25px;
+}
+
+.project-controls a:visited {
+    color: white;
+}
+
+.profile-bar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+    padding: 15px;
+}
+
+.profile-greeting {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.profile-greeting .avatar {
+    width: min(65px, 15%);
+    min-width: 65px;
+    height: auto;
+}
+
+.project-list {
+    grid-row: 1 / -1;
+    grid-column: 1 / -2;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 15px;
+}
+
+.announcement-list {
+    grid-column: 2 / -1;
+}
+
+.trending-list {
+    grid-column: 2 / -1;
+}
+
+.user-name {
+    font-weight: bold;
+    font-size: 1.25rem;
+}
