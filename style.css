@@ -1,35 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.announcement {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.announcement-list {
+    background: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    box-shadow: 5px 10px 5px #ced2d9;
+}
+
+.announcement p {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.announcement:not(:last-child) {
+    border-bottom: 2px solid #e8e8e8;
+}
+
 .avatar {
     border-radius: 50%;
     width: max(50px, 5%);
-    min-width: 50px;
     height: auto;
-}
-
-.top-bar {
-    box-sizing: border-box;
-    border: 2px solid black;
 }
 
 .gridContainer {
     display: grid;
-    grid-template-columns: min-content 2fr 1fr;
+    grid-template-columns: 1fr 4fr;
     grid-template-rows: min-content 1fr;
+    height: 100vh;
 }
 
 .main-nav {
     grid-row: 1 / -1;
     grid-column: 1 / 2;
-    margin-right: 15px;
+    padding: 0px 15px;
+    background: #1992d4;
+    color: white;
 }
 
-.top-bar {
-    grid-row: 1 / 2;
-    grid-column: 2 / -1;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: 50px 1fr;
-    gap: 15px;
-    padding: 15px;
+.main-nav li {
+    font-size: 1.5rem;
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.main-nav ul {
+    list-style: none;
+    margin-left: 13px;
 }
 
 .search-area {
@@ -39,10 +69,19 @@
 }
 
 .search-bar {
-    width: 50%;
+    width: max(250px, 50%);
     height: min(25px, 100%);
     background: #e2e8f0;
-    border-radius: 8px;
+    border-radius: 15px;
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.search-bar:focus {
+    outline: 2px solid black;
 }
 
 .search-icon {
@@ -50,11 +89,41 @@
     height: auto;
 }
 
+.setting-nav {
+    margin-top: 75px;
+}
+
+.side-lists {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.site-logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-top: 15px;
+    margin-bottom: 50px;
+}
+
+.site-logo svg {
+    max-width: 50px;
+    min-width: 50px;
+}
+
 .main-content {
     grid-row: 2 / -1;
     grid-column: 2 / -1;
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 2fr 0.5fr;
+    gap: 25px;
+    background: #e2e8f0;
+    padding: 25px;
+}
+
+.main-content h2 {
+    margin-bottom: 10px;
 }
 
 .notification-icon {
@@ -65,7 +134,7 @@
 .project-controls {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     gap: 25px;
 }
 
@@ -74,7 +143,7 @@
     align-items: center;
     justify-content: center;
     width: 100px;
-    background: #5cb6e1;
+    background: #1992d4;
     color: white;
     text-decoration: none;
     height: 50px;
@@ -108,17 +177,79 @@
 .project-list {
     grid-row: 1 / -1;
     grid-column: 1 / -2;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-gap: 15px;
+    display: flex;
+    flex-direction: column;
 }
 
-.announcement-list {
+.project-cards {
+    height: 100%;
+    display: grid;
+    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.project-card {
+    border-left: 10px solid #f0b429;
+    border-radius: 10px;
+    background: white;
+    padding: 25px 15px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 5px 10px 5px #ced2d9;
+}
+
+.project-card-links {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    align-self: flex-end;
+    flex: 1;
+    padding: 10px;
+}
+
+.top-bar {
+    z-index: 1;
+    box-shadow: 0px 10px 5px -5px #ced2d9;
+    grid-row: 1 / 2;
     grid-column: 2 / -1;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 50px 1fr;
+    gap: 15px;
+    padding: 15px 25px;
 }
 
 .trending-list {
-    grid-column: 2 / -1;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+    border-radius: 10px;
+    box-shadow: 5px 10px 5px #ced2d9;
+}
+
+.trending-user {
+    padding: 10px;
+}
+
+.trending-user p:last-child {
+    color: #a9a9a9;
+}
+
+.trending-user > p + p {
+    margin-top: 10px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.trending-user svg {
+    float: left;
+    width: 50px;
+    height: auto;
 }
 
 .user-name {
